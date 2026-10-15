@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#182c2b"><meta name="description" content="Isa Nails: diseños de uñas y reserva de citas.">
+<title>Isa Nails — Tu estilo, tu momento</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" data-view="inicio" aria-label="Isa Nails inicio"><span class="monogram">IN</span><span><b>ISA NAILS</b><small>STUDIO · NAIL ART</small></span></a>
+  <nav><button class="navlink" data-view="inicio">Inicio</button><button class="navlink" data-view="catalogo">Diseños</button><button class="navlink" data-view="reservar">Reservar</button></nav>
+  <div class="top-actions"><button class="outline" id="accountBtn">Entrar</button><button class="gold-button" data-view="reservar">Agendar cita</button></div>
+</header>
+<main id="app" aria-live="polite"></main>
+<footer><div class="brand footer-brand"><span class="monogram">IN</span><span><b>ISA NAILS</b><small>STUDIO · NAIL ART</small></span></div><p>Un estilo propio. Un momento para ti.</p><small>© <span id="year"></span> Isa Nails · <button class="text-button" style="color:#d5b77c" data-view="admin">Acceso de la dueña</button></small></footer>
+<dialog id="authDialog"><form method="dialog" class="dialog-x"><button class="icon-button" aria-label="Cerrar">×</button></form><div id="authContent"></div></dialog>
+<script src="app.js"></script>
+</body></html>

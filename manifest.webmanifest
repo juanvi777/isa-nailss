@@ -1,0 +1,9 @@
+{
+  "name": "Isa Nails",
+  "short_name": "Isa Nails",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f3ed",
+  "theme_color": "#182c2b",
+  "description": "Diseños de uñas y reserva de citas de Isa Nails."
+}
