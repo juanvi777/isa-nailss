@@ -2,8 +2,8 @@ const API_BASE = '/api';
 
 
 function clearSession() {
-  localStorage.removeItem('suldery_token');
-  localStorage.removeItem('suldery_user');
+  localStorage.removeItem('isa_nails_token');
+  localStorage.removeItem('isa_nails_user');
 }
 
 
@@ -89,7 +89,7 @@ function updateThemeToggle() {
 }
 
 function applySavedTheme() {
-  const saved = localStorage.getItem('suldery_theme');
+  const saved = localStorage.getItem('isa_nails_theme');
   document.body.classList.toggle('dark-mode', saved === 'dark');
   updateThemeToggle();
 }
@@ -97,7 +97,7 @@ function applySavedTheme() {
 function toggleTheme() {
   const dark = !document.body.classList.contains('dark-mode');
   document.body.classList.toggle('dark-mode', dark);
-  localStorage.setItem('suldery_theme', dark ? 'dark' : 'light');
+  localStorage.setItem('isa_nails_theme', dark ? 'dark' : 'light');
   updateThemeToggle();
 }
 document.addEventListener('DOMContentLoaded', () => {

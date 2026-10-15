@@ -19,12 +19,12 @@ async function loadLoginGallery() {
     stage.className = 'carousel-stage login-carousel-stage';
     const image = document.createElement('img');
     image.className = 'carousel-image';
-    image.alt = 'Diseño de Suldery Nails';
+    image.alt = 'Diseño de Isa Nails';
     stage.appendChild(image);
 
     const render = () => {
       image.src = data.photos[index].image_url;
-      image.alt = data.photos[index].title || 'Diseño de Suldery Nails';
+      image.alt = data.photos[index].title || 'Diseño de Isa Nails';
       dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     };
     const previous = document.createElement('button');

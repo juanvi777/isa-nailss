@@ -374,7 +374,7 @@ async function cancelarCita(id) {
 async function buildCarousel(gallery, photos, large = false) {
   gallery.innerHTML = '';
   if (!photos.length) {
-    gallery.innerHTML = '<div class="empty-state">Pronto verás aquí los diseños de Suldery.</div>';
+    gallery.innerHTML = '<div class="empty-state">Pronto verás aquí los diseños de Isa.</div>';
     return;
   }
 
@@ -382,7 +382,7 @@ async function buildCarousel(gallery, photos, large = false) {
   stage.className = large ? 'carousel-stage login-carousel-stage' : 'carousel-stage';
   const image = document.createElement('img');
   image.className = 'carousel-image';
-  image.alt = 'Diseño de Suldery Nails';
+  image.alt = 'Diseño de Isa Nails';
   stage.appendChild(image);
 
   const previous = document.createElement('button');
@@ -437,7 +437,7 @@ function drawCarousel(photos, gallery) {
   const dots = gallery.querySelectorAll('.carousel-dot');
   if (!image || !photos.length) return;
   image.src = photos[carouselIndex].image_url;
-  image.alt = photos[carouselIndex].title || 'Diseño de Suldery Nails';
+  image.alt = photos[carouselIndex].title || 'Diseño de Isa Nails';
   dots.forEach((dot, index) => dot.classList.toggle('active', index === carouselIndex));
 }
 

@@ -1,67 +1,26 @@
-SULDERY NAILS - MYSQL
-VERSIÓN 1.4
+ISA NAILS â€” AGENDA DIGITAL
+VERSIÃ“N VISUAL 1.0
 
-Estructura:
-public/index.html      -> solo inicio de sesión
-public/registro.html   -> solo registro
-public/cliente.html    -> solo panel de clienta
-public/duena.html      -> solo panel de dueña
-public/auth.js         -> sesión y API común
-public/login.js        -> login
-public/registro.js     -> registro
-public/cliente.js      -> calendario, horas, citas y carrusel
-public/duena.js        -> cuentas, citas, horarios y portafolio
-public/style.css       -> diseño completo
-server.js              -> API Express + MySQL
-schema.sql             -> tablas
-scripts/create-owner.js -> crear/actualizar dueña
+Proyecto de agenda para estudio de uÃ±as con identidad independiente. No incorpora funciones de inteligencia artificial.
 
-IMPORTANTE:
-- No subas .env a GitHub.
-- MySQL usa localhost:3306 por defecto.
-- Las citas usan la duración configurada por servicio (Polygel: 2 horas; demás servicios: 1 hora).
-- Horario inicial: lunes a sábado 07:00-18:00 y domingo descanso.
-- La dueña puede cambiar cada día desde duena.html.
+Funciones que se conservan del cÃ³digo actual:
+- Registro e inicio de sesiÃ³n de clientas.
+- AprobaciÃ³n de cuentas por la dueÃ±a.
+- Calendario y reserva por pasos (dÃ­a, hora, servicio y confirmaciÃ³n).
+- DuraciÃ³n de servicios y validaciÃ³n de disponibilidad.
+- AdministraciÃ³n de citas, horarios semanales y fechas bloqueadas.
+- GalerÃ­a de fotografÃ­as.
+- Tema claro/oscuro y PWA instalable.
 
-ARRANQUE:
-1) npm install
-2) npm start
-3) abrir http://localhost:3000
+Nueva identidad:
+- Verde profundo, marfil y dorado champÃ¡n.
+- Manrope para interfaz y Playfair Display para titulares.
+- Monograma inicial IN; nuevo manifest e iconos PWA.
 
+Antes de publicar:
+1. Confirma los servicios, precios, horarios y el WhatsApp real de Isa.
+2. Comprueba las variables del .env y la base de datos MySQL de Isa Nails; no reutilices credenciales de otro negocio.
+3. Ejecuta npm install y npm start, y prueba registro, acceso de dueÃ±a, reservas y subida de fotos.
+4. Verifica el sitio en mÃ³vil y escritorio. Este paquete modifica los archivos locales; no despliega automÃ¡ticamente a Railway.
 
-ACTUALIZACION V1.3
-
-Servicios configurados:
-- Manicure semipermanente: 1 hora
-- Pedicure: 1 hora
-- Polygel: 2 horas
-- Dipping: 1 hora
-- Forrado: 1 hora
-
-La disponibilidad del calendario ahora se calcula segun el servicio elegido. Para Polygel solo aparecen horas en las que caben las 2 horas completas.
-
-PORTAFOLIO:
-La dueña puede subir hasta 6 fotos, eliminarlas y cambiar el orden con las flechas ↑ y ↓. Ese mismo orden es el que aparece en el carrusel de las clientas.
-
-HORARIO:
-La dueña puede abrir/cerrar cada dia y cambiar la hora de inicio y fin desde su panel. El horario inicial es lunes a sabado de 07:00 a 18:00 y domingo de descanso.
-
-NOVEDADES V1.4
-- Interfaz visible completamente en español y corregida la codificación UTF-8.
-- Modo oscuro aplicado a toda la interfaz.
-- Reserva para clientas por pasos: día → hora → servicio → confirmación.
-- El formulario de reserva permanece oculto hasta pulsar “Agendar cita”.
-- Los domingos están cerrados por defecto.
-- La dueña puede bloquear fechas específicas desde su panel.
-- Las fechas bloqueadas se muestran en rojo y no aceptan reservas.
-- El portafolio de hasta 6 fotos se reutiliza en el carrusel del panel de clienta y en la pantalla de inicio de sesión.
-
-
-SULDERY NAILS · VERSIÓN 1.5
-
-Mejoras recientes:
-- Calendario de reservas con cabecera de marca y logo visible en modo claro y oscuro.
-- Días del calendario con estados visuales: disponible, bloqueado, descanso, agotado y pasado.
-- Flujo de reserva paso a paso: día → hora → servicio → confirmación.
-- Tema oscuro aplicado correctamente al body y a toda la interfaz.
-- Correcciones de texto/acentos para evitar problemas de codificación.
+Nunca subas el archivo .env ni claves al repositorio.

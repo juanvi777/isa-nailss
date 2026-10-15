@@ -299,7 +299,7 @@ async function subirFoto(event) {
   if (!file) return;
   const form = new FormData();
   form.append('photo', file);
-  form.append('title', 'Diseño Suldery Nails');
+  form.append('title', 'Diseño Isa Nails');
   try {
     await apiFetch('/owner/portfolio', { method:'POST', body:form });
     await loadOwnerGallery();
