@@ -1,20 +1,80 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#182c2b"><meta name="description" content="Isa Nails: diseños de uñas y reserva de citas.">
-<title>Isa Nails — Tu estilo, tu momento</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#182c2b">
+  <meta name="description" content="Isa Nails: catálogo de uñas y agenda de citas.">
+  <title>Isa Nails | Belleza en cada detalle</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon-192.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <header class="topbar">
-  <a class="brand" href="#" data-view="inicio" aria-label="Isa Nails inicio"><span class="monogram">IN</span><span><b>ISA NAILS</b><small>STUDIO · NAIL ART</small></span></a>
-  <nav><button class="navlink" data-view="inicio">Inicio</button><button class="navlink" data-view="catalogo">Diseños</button><button class="navlink" data-view="reservar">Reservar</button></nav>
-  <div class="top-actions"><button class="outline" id="accountBtn">Entrar</button><button class="gold-button" data-view="reservar">Agendar cita</button></div>
+  <a class="brand" href="#inicio" aria-label="Isa Nails inicio"><span class="brand-mark">IN</span><span><strong>ISA NAILS</strong><small>BELLEZA EN CADA DETALLE</small></span></a>
+  <button id="menuBtn" class="menu-btn" aria-label="Abrir menú">☰</button>
+  <nav id="nav">
+    <a href="#inicio">Inicio</a><a href="#catalogo">Diseños</a><a href="#servicios">Servicios</a>
+    <button id="accountBtn" class="nav-account">Ingresar</button>
+  </nav>
 </header>
-<main id="app" aria-live="polite"></main>
-<footer><div class="brand footer-brand"><span class="monogram">IN</span><span><b>ISA NAILS</b><small>STUDIO · NAIL ART</small></span></div><p>Un estilo propio. Un momento para ti.</p><small>© <span id="year"></span> Isa Nails · <button class="text-button" style="color:#d5b77c" data-view="admin">Acceso de la dueña</button></small></footer>
-<dialog id="authDialog"><form method="dialog" class="dialog-x"><button class="icon-button" aria-label="Cerrar">×</button></form><div id="authContent"></div></dialog>
-<script src="app.js"></script>
+<main>
+<section id="inicio" class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">TU MOMENTO · TU ESTILO</p>
+    <h1>Uñas que hablan<br><em>de ti.</em></h1>
+    <p class="hero-text">Diseños cuidados, detalles delicados y una experiencia hecha para ti. Explora el catálogo y reserva tu próximo espacio.</p>
+    <div class="hero-actions"><button class="btn primary" data-go-book>Agendar cita</button><a class="btn light" href="#catalogo">Ver diseños</a></div>
+    <p class="hero-note">La agenda se confirma al iniciar sesión.</p>
+  </div>
+  <div class="hero-art" aria-label="Diseño editorial de Isa Nails">
+    <div class="art-ring"></div><div class="art-card"><span>ISA</span><b>NAILS</b><i>little details, big beauty</i></div>
+    <div class="art-stamp">IN<br><small>EST. ISA NAILS</small></div>
+  </div>
+</section>
+<section class="section intro">
+  <div><p class="eyebrow">BIENVENIDA</p><h2>Un espacio para<br><em>consentirte.</em></h2></div>
+  <p>Encuentra inspiración, conoce los servicios y elige el día y la hora que mejor te queden. Para cuidar tu cita, primero inicia sesión o crea tu cuenta.</p>
+</section>
+<section id="catalogo" class="section catalog-section">
+  <div class="section-head"><div><p class="eyebrow">INSPIRACIÓN</p><h2>Diseños destacados</h2></div><span class="muted">Hasta 2 destacados · catálogo de 40 diseños</span></div>
+  <div id="featuredGrid" class="design-grid"></div>
+  <div class="catalog-more"><button id="showCatalog" class="btn outline">Explorar catálogo completo</button></div>
+  <div id="allCatalog" class="design-grid all-catalog hidden"></div>
+</section>
+<section id="servicios" class="section services-section">
+  <div class="section-head"><div><p class="eyebrow">SERVICIOS</p><h2>Tu próxima cita</h2></div><p class="muted">Los precios y tiempos se pueden ajustar desde el panel de la dueña.</p></div>
+  <div id="serviceGrid" class="service-grid"></div>
+  <button class="btn primary" data-go-book>Elegir servicio y agendar</button>
+</section>
+<section class="section booking-section" id="agenda">
+  <div class="booking-info"><p class="eyebrow">RESERVA PERSONAL</p><h2>Tu espacio,<br><em>a tu ritmo.</em></h2><p>Elige servicio, fecha y hora disponible. Inicia sesión para proteger y consultar tus citas.</p><ol><li>Inicia sesión o regístrate.</li><li>Selecciona el servicio y la fecha.</li><li>Elige una hora disponible y confirma.</li></ol></div>
+  <div class="booking-card"><div id="bookingGate"><div class="gate-icon">✦</div><h3>Agenda de Isa Nails</h3><p>Para agendar una cita necesitas iniciar sesión.</p><button class="btn primary full" id="gateLogin">Ingresar o crear cuenta</button></div>
+  <form id="bookingForm" class="hidden">
+    <h3>Reserva tu cita</h3><label>Servicio<select id="bookService" required></select></label>
+    <label>Fecha<input id="bookDate" type="date" required></label>
+    <label>Hora disponible<select id="bookTime" required><option value="">Selecciona una fecha</option></select></label>
+    <label>Nota para la cita (opcional)<textarea id="bookNote" rows="2" maxlength="240" placeholder="Cuéntanos si tienes alguna preferencia"></textarea></label>
+    <button class="btn primary full" type="submit">Confirmar solicitud</button><p class="small muted">La cita queda pendiente hasta que Isa Nails la confirme.</p>
+  </form></div>
+</section>
+<section id="mi-cuenta" class="section account-section hidden"><div class="section-head"><div><p class="eyebrow">TU ESPACIO</p><h2 id="accountHeading">Mi cuenta</h2></div><button id="logoutBtn" class="btn outline">Cerrar sesión</button></div><div id="accountContent"></div></section>
+<section id="owner" class="section owner-section hidden"><div class="section-head"><div><p class="eyebrow">ADMINISTRACIÓN</p><h2>Panel de Isa Nails</h2></div><span class="pill">Dueña</span></div>
+<div class="owner-grid">
+  <div class="owner-card"><h3>Agenda y citas</h3><p class="muted small">Confirma o cancela solicitudes.</p><div id="ownerAppointments"></div><button id="exportCsv" class="btn outline full">Exportar citas CSV</button></div>
+  <div class="owner-card"><h3>Horario de atención</h3><p class="muted small">Define los días y las horas de trabajo.</p><label>Hora de apertura<input id="openTime" type="time" value="09:00"></label><label>Hora de cierre<input id="closeTime" type="time" value="18:00"></label><label>Duración de cada espacio<select id="slotLength"><option value="30">30 minutos</option><option value="60">60 minutos</option><option value="90">90 minutos</option></select></label><div id="weekdayChecks" class="weekday-checks"></div><button id="saveHours" class="btn primary full">Guardar horario</button></div>
+  <div class="owner-card"><h3>Bloquear fecha</h3><p class="muted small">Los domingos se bloquean inicialmente.</p><label>Fecha<input id="blockedDate" type="date"></label><label>Motivo (opcional)<input id="blockedReason" maxlength="80" placeholder="Día no laborable"></label><button id="blockDateBtn" class="btn outline full">Bloquear fecha</button><div id="blockedList"></div></div>
+  <div class="owner-card"><h3>Servicios y precios</h3><p class="muted small">Edita la lista que ven las clientas.</p><div id="ownerServices"></div><form id="addServiceForm"><label>Nombre<input id="newServiceName" required maxlength="60" placeholder="Nombre del servicio"></label><label>Precio en COP<input id="newServicePrice" type="number" min="0" required></label><label>Duración (minutos)<input id="newServiceDuration" type="number" min="15" step="15" value="60" required></label><button class="btn outline full" type="submit">Añadir servicio</button></form></div>
+  <div class="owner-card"><h3>Diseños del catálogo</h3><p class="muted small">Máximo 40 diseños y 2 destacados. Puedes añadir el nombre y una URL de imagen pública.</p><div id="ownerDesigns"></div><form id="addDesignForm"><label>Nombre del diseño<input id="newDesignName" required maxlength="70"></label><label>URL de imagen (opcional)<input id="newDesignImage" type="url" placeholder="https://..."></label><label class="inline-check"><input id="newDesignFeatured" type="checkbox"> Mostrar como destacado</label><button class="btn outline full" type="submit">Añadir diseño</button></form></div>
+  <div class="owner-card"><h3>Datos y ayuda</h3><p>Los datos de esta instalación se guardan en este navegador.</p><button id="exportBackup" class="btn outline full">Descargar copia de datos</button><label>Restaurar copia JSON<input id="restoreBackup" type="file" accept="application/json"></label><p class="small muted">No borres los datos del navegador sin descargar antes una copia.</p></div>
+</div></section>
+<section class="section steps-section" id="como-funciona"><p class="eyebrow">GUÍA RÁPIDA</p><h2>Todo claro, paso a paso.</h2><div class="steps-grid"><article><span>01</span><h3>Crear cuenta</h3><p>Entra en “Ingresar”, selecciona registro y completa tus datos.</p></article><article><span>02</span><h3>Elegir servicio</h3><p>Revisa los diseños, selecciona un servicio y abre la agenda.</p></article><article><span>03</span><h3>Reservar</h3><p>Escoge fecha y hora disponible y envía la solicitud.</p></article><article><span>04</span><h3>Consultar cita</h3><p>En “Mi cuenta” puedes revisar el estado de tus solicitudes.</p></article></div></section>
+</main>
+<footer><a class="brand footer-brand" href="#inicio"><span class="brand-mark">IN</span><span><strong>ISA NAILS</strong><small>BELLEZA EN CADA DETALLE</small></span></a><p>Hecho con cuidado, pensado para ti.</p><a href="#como-funciona">Cómo funciona</a></footer>
+<div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle"><div class="modal-backdrop" data-close-auth></div><div class="modal-panel"><button class="modal-close" data-close-auth aria-label="Cerrar">×</button><p class="eyebrow">ISA NAILS</p><h2 id="authTitle">Bienvenida</h2><div class="auth-tabs"><button id="loginTab" class="active">Ingresar</button><button id="registerTab">Crear cuenta</button></div>
+<form id="authForm"><label>Nombre completo<input id="authName" autocomplete="name" maxlength="80" placeholder="Tu nombre" class="hidden"></label><label>Correo electrónico<input id="authEmail" type="email" autocomplete="email" required placeholder="tu@correo.com"></label><label>Contraseña<input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo 6 caracteres"></label><button class="btn primary full" id="authSubmit" type="submit">Ingresar</button><p id="authMessage" class="small muted" aria-live="polite"></p></form>
+<div class="owner-login"><button id="ownerTab" class="text-button">Acceso de la dueña</button><p id="ownerHelp" class="small muted hidden">Usa el correo <strong>duena@isanails.local</strong>. La primera vez, crea la cuenta desde “Crear cuenta” con ese correo y tu contraseña.</p></div></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="./app.js" defer></script>
 </body></html>

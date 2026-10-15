@@ -1,9 +1,26 @@
 {
+  "id": "./",
   "name": "Isa Nails",
   "short_name": "Isa Nails",
-  "start_url": "./index.html",
+  "description": "Catálogo y agenda de Isa Nails",
+  "lang": "es-CO",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f5f3ed",
   "theme_color": "#182c2b",
-  "description": "Diseños de uñas y reserva de citas de Isa Nails."
+  "icons": [
+    {
+      "src": "./icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
